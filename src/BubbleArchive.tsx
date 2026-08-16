@@ -151,7 +151,7 @@ export function BubbleArchive({ data }: { data: Archive }) {
   return (
     <main id="top">
       <header className="masthead">
-        <div className="utility"><a className="brand" href="https://tbzarchive1206.github.io/tbzarchive/">THE BOYZ / FAN ARCHIVE</a><nav><span>STATIC MEDIA COLLECTION</span><span>/</span><a href="https://x.com/tbzarchive1206_" target="_blank" rel="noreferrer">TWITTER ↗</a></nav></div>
+        <div className="utility"><a className="brand" href="https://tbzarchive.com/">THE BOYZ / FAN ARCHIVE</a><nav><span>STATIC MEDIA COLLECTION</span><span>/</span><a href="https://x.com/tbzarchive1206_" target="_blank" rel="noreferrer">TWITTER ↗</a></nav></div>
         <h1><span className="solid">BUBBLE MEDIA</span><span className="outline">ARCHIVE</span></h1>
         <div className="stats"><p><strong>{data.members.length}</strong> MEMBERS</p><i /><p><strong>{totalMedia.toLocaleString("en-US")}</strong> MEDIA FILES</p><i /><p>STATIC <strong>ARCHIVE</strong></p></div>
       </header>
@@ -189,7 +189,7 @@ export function BubbleArchive({ data }: { data: Archive }) {
         </section>
       )}
 
-      <footer><a href="https://tbzarchive1206.github.io/tbzarchive/">← MAIN ARCHIVE</a><a href="#top">BACK TO TOP ↑</a></footer>
+      <footer><a href="https://tbzarchive.com">← MAIN ARCHIVE</a><a href="#top">BACK TO TOP ↑</a></footer>
 
       {preview && <div className="player-overlay" role="dialog" aria-modal="true" aria-labelledby="player-title" onClick={(event) => { if (event.target === event.currentTarget) setPreview(null); }}><div className="player-box"><header><div><span>{effectiveKind(preview).toUpperCase()} / BUBBLE</span><h2 id="player-title">{preview.name}</h2><small>{formatDate(preview)}</small></div><button type="button" onClick={() => setPreview(null)} aria-label="Close player">×</button></header><iframe src={previewUrl(preview.id)} title={preview.name} allow="autoplay; fullscreen" allowFullScreen /><div className="player-links"><a href={fileUrl(preview.id)} target="_blank" rel="noreferrer">VIEW IN DRIVE ↗</a><a href={directUrl(preview.id)} target="_blank" rel="noreferrer">DOWNLOAD ↓</a></div></div></div>}
     </main>
