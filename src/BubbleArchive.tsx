@@ -1,3 +1,4 @@
+import { MemberName } from "./MemberName";
 import { useEffect, useMemo, useState } from "react";
 
 type MediaKind = "image" | "video" | "audio" | "document";
@@ -161,7 +162,7 @@ export function BubbleArchive({ data }: { data: Archive }) {
           <div className="picker-head"><p>SELECT A MEMBER</p><a href={rootUrl(data.sourceFolderId)} target="_blank" rel="noreferrer">OPEN SOURCE FOLDER ↗</a></div>
           <div className="member-grid">{data.members.map((item, index) => {
             const counts = memberCounts(item);
-            return <button key={item.name} onClick={() => chooseMember(item)}><span>{String(index + 1).padStart(2, "0")}</span><strong>{item.label}</strong><small>{item.externalUrl ? "EXTERNAL ARCHIVE →" : `${item.media.length.toLocaleString("en-US")} MEDIA · ${(counts.audio || 0).toLocaleString("en-US")} VOICE →`}</small></button>;
+            return <button key={item.name} onClick={() => chooseMember(item)}><span>{String(index + 1).padStart(2, "0")}</span><strong><MemberName name={item.label} /></strong><small>{item.externalUrl ? "EXTERNAL ARCHIVE →" : `${item.media.length.toLocaleString("en-US")} MEDIA · ${(counts.audio || 0).toLocaleString("en-US")} VOICE →`}</small></button>;
           })}</div>
           <div className="archive-summary"><span>{(totalCounts.image || 0).toLocaleString("en-US")} PHOTOS</span><span>{(totalCounts.video || 0).toLocaleString("en-US")} VIDEOS</span><span>{(totalCounts.audio || 0).toLocaleString("en-US")} VOICE MESSAGES</span><span>{(totalCounts.document || 0).toLocaleString("en-US")} DOCUMENTS</span></div>
         </section>
